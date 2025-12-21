@@ -94,6 +94,7 @@
             btnLogin.Text = "Login";
             btnLogin.UseVisualStyleBackColor = false;
             btnLogin.Click += btnLogin_Click;
+            btnLogin.KeyDown += btnLogin_KeyDown;
             // 
             // cbPassword
             // 
