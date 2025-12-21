@@ -35,15 +35,5 @@ namespace FirstWinForm
         {
             txtBoxPassword.UseSystemPasswordChar = !cbPassword.Checked;
         }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnLogin_KeyDown(object sender, KeyEventArgs e)
-        {
-
-        }
     }
 }

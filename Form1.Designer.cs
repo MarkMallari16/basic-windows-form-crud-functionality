@@ -94,7 +94,6 @@
             btnLogin.Text = "Login";
             btnLogin.UseVisualStyleBackColor = false;
             btnLogin.Click += btnLogin_Click;
-            btnLogin.KeyDown += btnLogin_KeyDown;
             // 
             // cbPassword
             // 
@@ -122,7 +121,6 @@
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "First Windows Form";
-            Load += Form1_Load;
             ResumeLayout(false);
             PerformLayout();
         }

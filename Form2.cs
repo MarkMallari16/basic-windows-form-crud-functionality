@@ -32,10 +32,10 @@ namespace FirstWinForm
 
         private void ResetAllInputs()
         {
-            txtBoxID.Text = "";
-            txtBoxName.Text = "";
-            txtBoxAge.Text = "";
-            txtBoxCourse.Text = "";
+            txtBoxID.Clear();
+            txtBoxName.Clear();
+            txtBoxAge.Clear();
+            txtBoxCourse.Clear();
         }
         private bool DisplayValidations()
         {
@@ -98,7 +98,6 @@ namespace FirstWinForm
             if (students.ContainsKey(id))
             {
                 students[id] = new string[] { name, age, course };
-
             }
             else
             {
@@ -113,22 +112,57 @@ namespace FirstWinForm
             row.Cells["Student Course"].Value = course;
 
             MessageBox.Show("Students Successfully Update.", "Success");
+
+            ResetAllInputs();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Students Successfully Delete.", "Success");
+
+            if (dataTblGridStudent.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a student to delete.");
+                return;
+            }
+
+            int id = Convert.ToInt32(txtBoxID.Text);
+
+            if (students.ContainsKey(id))
+            {
+                if (MessageBox.Show("Are you sure you want to delete this student?", "Confirm Delete", MessageBoxButtons.YesNo) == DialogResult.No)
+                    return;
+
+                students.Remove(id);
+
+
+                DataRow rowToDelete = table.AsEnumerable()
+                                            .FirstOrDefault(r => r.Field<int>("Student ID") == id);
+                if (rowToDelete != null)
+                {
+                    table.Rows.Remove(rowToDelete);
+                }
+
+                MessageBox.Show($"Students Successfully Delete {id}.", "Success");
+
+                ResetAllInputs();
+            }
+            else
+            {
+                MessageBox.Show("Student not found.");
+                return;
+            }
         }
 
         private void dataTblGridStudent_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
 
+
             DataGridViewRow row = dataTblGridStudent.Rows[e.RowIndex];
-            txtBoxID.Text = row.Cells[0].Value.ToString();
-            txtBoxName.Text = row.Cells[1].Value.ToString();
-            txtBoxAge.Text = row.Cells[2].Value.ToString();
-            txtBoxCourse.Text = row.Cells[3].Value.ToString();
+            txtBoxID.Text = row.Cells[0].Value?.ToString() ?? "";
+            txtBoxName.Text = row.Cells[1].Value?.ToString() ?? "";
+            txtBoxAge.Text = row.Cells[2].Value?.ToString() ?? "";
+            txtBoxCourse.Text = row.Cells[3].Value?.ToString() ?? "";
 
         }
     }
