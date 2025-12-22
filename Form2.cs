@@ -153,6 +153,8 @@ namespace FirstWinForm
         {
             if (e.RowIndex < 0) return;
 
+            txtBoxID.ReadOnly = true;
+
             DataGridViewRow row = dataTblGridStudent.Rows[e.RowIndex];
             txtBoxID.Text = row.Cells[0].Value?.ToString() ?? "";
             txtBoxName.Text = row.Cells[1].Value?.ToString() ?? "";
