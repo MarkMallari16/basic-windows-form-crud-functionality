@@ -95,11 +95,7 @@ namespace FirstWinForm
             string age = txtBoxAge.Text;
             string course = txtBoxCourse.Text;
 
-            if (students.ContainsKey(id))
-            {
-                students[id] = new string[] { name, age, course };
-            }
-            else
+            if (!students.ContainsKey(id))
             {
                 MessageBox.Show("Student not found.");
                 return;
@@ -156,7 +152,6 @@ namespace FirstWinForm
         private void dataTblGridStudent_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
-
 
             DataGridViewRow row = dataTblGridStudent.Rows[e.RowIndex];
             txtBoxID.Text = row.Cells[0].Value?.ToString() ?? "";
