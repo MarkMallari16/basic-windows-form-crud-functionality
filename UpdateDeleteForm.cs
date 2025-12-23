@@ -49,10 +49,12 @@ namespace FirstWinForm
                             {
                                 MessageBox.Show("Student deleted successfully.", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 this.Close();
+                                conn.Close();
                             }
                             else
                             {
                                 MessageBox.Show("Delete failed. Student not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                conn.Close();
                             }
 
                         }
