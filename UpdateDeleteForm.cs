@@ -56,7 +56,6 @@ namespace FirstWinForm
                                 MessageBox.Show("Delete failed. Student not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 conn.Close();
                             }
-
                         }
                     }
                 }
@@ -69,7 +68,49 @@ namespace FirstWinForm
 
         private void UpdateBtn_Click(object sender, EventArgs e)
         {
+            try
+            {
+                using (SqlConnection conn = DatabaseHelper.GetConnection())
+                {
+                    conn.Open();
 
+                    string query = "UPDATE students SET first_name = @firstName, last_name = @lastName, age = @age," +
+                        "course = course WHERE id = @id";
+
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@id", txtBoxId.Text);
+                        cmd.Parameters.AddWithValue("@firstName", txtBoxFirstName.Text);
+                        cmd.Parameters.AddWithValue("@lastName", txtBoxLastName.Text);
+                        cmd.Parameters.AddWithValue("@age", txtBoxAge.Text);
+                        cmd.Parameters.AddWithValue("@course", txtBoxCourse.Text);
+
+                        int rowsAffected = cmd.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Student updated successfully.", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            this.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Update failed. Student not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: ", ex.Message);
+            }
+        }
+
+        private void txtBoxAge_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

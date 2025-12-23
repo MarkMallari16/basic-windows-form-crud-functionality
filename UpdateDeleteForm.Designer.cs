@@ -107,6 +107,7 @@
             txtBoxAge.Name = "txtBoxAge";
             txtBoxAge.Size = new Size(435, 23);
             txtBoxAge.TabIndex = 8;
+            txtBoxAge.KeyPress += txtBoxAge_KeyPress;
             // 
             // label5
             // 
