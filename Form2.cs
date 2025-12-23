@@ -91,7 +91,6 @@ namespace FirstWinForm
 
             StudentRepository repo = new StudentRepository();
 
-
             if (repo.Add(student))
             {
                 MessageBox.Show("Student successfully added.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
