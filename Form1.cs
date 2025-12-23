@@ -1,13 +1,19 @@
+using System.Configuration;
+
 namespace FirstWinForm
 {
     public partial class Form1 : Form
     {
         private string username = "Mark";
         private string password = "Mark123";
+        private string connectionString = ConfigurationManager.ConnectionStrings["college_student_management"].ConnectionString;
+
 
         public Form1()
         {
             InitializeComponent();
+
+
         }
 
 
