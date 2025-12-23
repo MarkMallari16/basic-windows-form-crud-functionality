@@ -1,6 +1,6 @@
 ﻿using FirstWinForm.Database;
+using Microsoft.Data.SqlClient;
 using System.Data;
-using System.Data.SqlClient;
 
 namespace FirstWinForm
 {
@@ -12,6 +12,7 @@ namespace FirstWinForm
         {
             InitializeComponent();
             InitializeDataTable();
+
         }
 
         private void InitializeDataTable()
@@ -114,35 +115,42 @@ namespace FirstWinForm
 
         }
 
-        private void btnUpdate_Click(object sender, EventArgs e)
-        {
-
-
-
-            ResetAllInputs();
-        }
-
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-
-
-        }
-
         private void dataTblGridStudent_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
 
 
-            DataGridViewRow row = dataTblGridStudent.Rows[e.RowIndex];
-            txtBoxFirstName.Text = row.Cells[1].Value?.ToString() ?? "";
-            txtBoxAge.Text = row.Cells[2].Value?.ToString() ?? "";
-            txtBoxCourse.Text = row.Cells[3].Value?.ToString() ?? "";
+
 
         }
 
         private void txtBoxName_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataTblGridStudent_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dataTblGridStudent.Rows[e.RowIndex];
+
+                int studentId = Convert.ToInt32(row.Cells["Student ID"].Value);
+                string firstName = row.Cells["Student First Name"].Value.ToString();
+                string lastName = row.Cells["Student Last Name"].Value.ToString();
+                string age = row.Cells["Student Age"].Value.ToString();
+                string course = row.Cells["Student Course"].Value.ToString();
+
+                UpdateDeleteForm updateDeleteForm = new UpdateDeleteForm(studentId, firstName, lastName, age, course);
+                updateDeleteForm.ShowDialog();
+
+                LoadStudents();
+            }
         }
     }
 }

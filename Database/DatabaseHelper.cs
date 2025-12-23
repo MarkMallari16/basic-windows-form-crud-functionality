@@ -1,5 +1,5 @@
-﻿using System.Configuration;
-using System.Data.SqlClient;
+﻿using Microsoft.Data.SqlClient;
+using System.Configuration;
 
 
 namespace FirstWinForm.Database

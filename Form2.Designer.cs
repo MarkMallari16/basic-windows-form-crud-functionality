@@ -35,12 +35,10 @@
             label4 = new Label();
             txtBoxCourse = new TextBox();
             label5 = new Label();
-            dataTblGridStudent = new DataGridView();
-            BtnUpdate = new Button();
-            BtnDelete = new Button();
             BtnAdd = new Button();
             txtBoxLastName = new TextBox();
             label2 = new Label();
+            dataTblGridStudent = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)dataTblGridStudent).BeginInit();
             SuspendLayout();
             // 
@@ -58,7 +56,7 @@
             // 
             txtBoxFirstName.Location = new Point(21, 89);
             txtBoxFirstName.Name = "txtBoxFirstName";
-            txtBoxFirstName.Size = new Size(278, 23);
+            txtBoxFirstName.Size = new Size(328, 23);
             txtBoxFirstName.TabIndex = 4;
             txtBoxFirstName.TextChanged += txtBoxName_TextChanged;
             // 
@@ -75,7 +73,7 @@
             // 
             txtBoxAge.Location = new Point(21, 206);
             txtBoxAge.Name = "txtBoxAge";
-            txtBoxAge.Size = new Size(278, 23);
+            txtBoxAge.Size = new Size(328, 23);
             txtBoxAge.TabIndex = 6;
             // 
             // label4
@@ -91,7 +89,7 @@
             // 
             txtBoxCourse.Location = new Point(21, 266);
             txtBoxCourse.Name = "txtBoxCourse";
-            txtBoxCourse.Size = new Size(278, 23);
+            txtBoxCourse.Size = new Size(328, 23);
             txtBoxCourse.TabIndex = 8;
             // 
             // label5
@@ -103,48 +101,14 @@
             label5.TabIndex = 7;
             label5.Text = "Student Course";
             // 
-            // dataTblGridStudent
-            // 
-            dataTblGridStudent.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataTblGridStudent.Location = new Point(357, 89);
-            dataTblGridStudent.Name = "dataTblGridStudent";
-            dataTblGridStudent.Size = new Size(419, 330);
-            dataTblGridStudent.TabIndex = 9;
-            // 
-            // BtnUpdate
-            // 
-            BtnUpdate.BackColor = SystemColors.Highlight;
-            BtnUpdate.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            BtnUpdate.ForeColor = SystemColors.ControlText;
-            BtnUpdate.Location = new Point(357, 50);
-            BtnUpdate.Name = "BtnUpdate";
-            BtnUpdate.Size = new Size(208, 33);
-            BtnUpdate.TabIndex = 11;
-            BtnUpdate.Text = "Update";
-            BtnUpdate.UseVisualStyleBackColor = false;
-            BtnUpdate.Click += btnUpdate_Click;
-            // 
-            // BtnDelete
-            // 
-            BtnDelete.BackColor = Color.IndianRed;
-            BtnDelete.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            BtnDelete.ForeColor = SystemColors.ControlText;
-            BtnDelete.Location = new Point(571, 50);
-            BtnDelete.Name = "BtnDelete";
-            BtnDelete.Size = new Size(205, 33);
-            BtnDelete.TabIndex = 12;
-            BtnDelete.Text = "Delete";
-            BtnDelete.UseVisualStyleBackColor = false;
-            BtnDelete.Click += btnDelete_Click;
-            // 
             // BtnAdd
             // 
             BtnAdd.BackColor = SystemColors.ActiveCaptionText;
             BtnAdd.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BtnAdd.ForeColor = SystemColors.Control;
-            BtnAdd.Location = new Point(21, 306);
+            BtnAdd.Location = new Point(21, 307);
             BtnAdd.Name = "BtnAdd";
-            BtnAdd.Size = new Size(278, 33);
+            BtnAdd.Size = new Size(328, 33);
             BtnAdd.TabIndex = 13;
             BtnAdd.Text = "Add";
             BtnAdd.UseVisualStyleBackColor = false;
@@ -154,7 +118,7 @@
             // 
             txtBoxLastName.Location = new Point(21, 152);
             txtBoxLastName.Name = "txtBoxLastName";
-            txtBoxLastName.Size = new Size(278, 23);
+            txtBoxLastName.Size = new Size(328, 23);
             txtBoxLastName.TabIndex = 15;
             // 
             // label2
@@ -166,16 +130,23 @@
             label2.TabIndex = 14;
             label2.Text = "Student Last Name";
             // 
+            // dataTblGridStudent
+            // 
+            dataTblGridStudent.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataTblGridStudent.Location = new Point(443, 39);
+            dataTblGridStudent.Name = "dataTblGridStudent";
+            dataTblGridStudent.Size = new Size(641, 424);
+            dataTblGridStudent.TabIndex = 9;
+            dataTblGridStudent.CellContentClick += dataTblGridStudent_CellContentClick;
+            // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(902, 450);
+            ClientSize = new Size(1129, 559);
             Controls.Add(txtBoxLastName);
             Controls.Add(label2);
             Controls.Add(BtnAdd);
-            Controls.Add(BtnDelete);
-            Controls.Add(BtnUpdate);
             Controls.Add(dataTblGridStudent);
             Controls.Add(txtBoxCourse);
             Controls.Add(label5);
@@ -187,6 +158,7 @@
             Name = "Form2";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form2";
+            Load += Form2_Load;
             ((System.ComponentModel.ISupportInitialize)dataTblGridStudent).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -202,8 +174,6 @@
         private TextBox txtBoxCourse;
         private Label label5;
         private DataGridView tblStudent;
-        private Button BtnUpdate;
-        private Button BtnDelete;
         private Button BtnAdd;
         private DataGridView dataTblGridStudent;
         private TextBox txtBoxLastName;
