@@ -29,7 +29,7 @@ namespace FirstWinForm
             dataTblGridStudent.AllowUserToAddRows = false;
             dataTblGridStudent.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataTblGridStudent.MultiSelect = false;
-            dataTblGridStudent.CellClick += dataTblGridStudent_CellClick;
+            dataTblGridStudent.CellDoubleClick += dataTblGridStudent_CellClick;
 
             LoadStudents();
         }
@@ -136,18 +136,23 @@ namespace FirstWinForm
 
         private void dataTblGridStudent_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+
+        }
+
+        private void dataTblGridStudent_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dataTblGridStudent.Rows[e.RowIndex];
 
-                int studentId = Convert.ToInt32(row.Cells["Student ID"].Value);
-                string firstName = row.Cells["Student First Name"].Value.ToString();
-                string lastName = row.Cells["Student Last Name"].Value.ToString();
-                string age = row.Cells["Student Age"].Value.ToString();
-                string course = row.Cells["Student Course"].Value.ToString();
+                int studentId = Convert.ToInt32(row.Cells["id"].Value);
+                string firstName = row.Cells["first_name"].Value.ToString();
+                string lastName = row.Cells["last_name"].Value.ToString();
+                string age = row.Cells["age"].Value.ToString();
+                string course = row.Cells["course"].Value.ToString();
 
-                UpdateDeleteForm updateDeleteForm = new UpdateDeleteForm(studentId, firstName, lastName, age, course);
-                updateDeleteForm.ShowDialog();
+                UpdateDeleteForm updateForm = new UpdateDeleteForm(studentId, firstName, lastName, age, course);
+                updateForm.ShowDialog();
 
                 LoadStudents();
             }

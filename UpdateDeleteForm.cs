@@ -8,11 +8,20 @@
         public UpdateDeleteForm(int id, string firstName, string lastName, string age, string course)
         {
             InitializeComponent();
+
             this.id = id;
             this.firstName = firstName;
             this.lastName = lastName;
             this.age = age;
             this.course = course;
+
+            txtBoxId.Text = id.ToString();
+            txtBoxFirstName.Text = firstName;
+            txtBoxLastName.Text = lastName;
+            txtBoxAge.Text = age;
+            txtBoxCourse.Text = course;
         }
+
+
     }
 }

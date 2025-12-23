@@ -29,16 +29,18 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            textBox1 = new TextBox();
+            txtBoxId = new TextBox();
             label2 = new Label();
             label3 = new Label();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
+            txtBoxFirstName = new TextBox();
+            txtBoxLastName = new TextBox();
             label4 = new Label();
-            textBox4 = new TextBox();
+            txtBoxAge = new TextBox();
             label5 = new Label();
-            textBox5 = new TextBox();
+            txtBoxCourse = new TextBox();
             label6 = new Label();
+            DeleteBtn = new Button();
+            UpdateBtn = new Button();
             SuspendLayout();
             // 
             // label1
@@ -50,13 +52,13 @@
             label1.TabIndex = 0;
             label1.Text = "Student ID";
             // 
-            // textBox1
+            // txtBoxId
             // 
-            textBox1.Location = new Point(12, 37);
-            textBox1.Name = "textBox1";
-            textBox1.ReadOnly = true;
-            textBox1.Size = new Size(435, 23);
-            textBox1.TabIndex = 1;
+            txtBoxId.Location = new Point(12, 37);
+            txtBoxId.Name = "txtBoxId";
+            txtBoxId.ReadOnly = true;
+            txtBoxId.Size = new Size(435, 23);
+            txtBoxId.TabIndex = 1;
             // 
             // label2
             // 
@@ -76,19 +78,19 @@
             label3.TabIndex = 3;
             label3.Text = "First Name";
             // 
-            // textBox2
+            // txtBoxFirstName
             // 
-            textBox2.Location = new Point(12, 90);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(435, 23);
-            textBox2.TabIndex = 4;
+            txtBoxFirstName.Location = new Point(12, 90);
+            txtBoxFirstName.Name = "txtBoxFirstName";
+            txtBoxFirstName.Size = new Size(435, 23);
+            txtBoxFirstName.TabIndex = 4;
             // 
-            // textBox3
+            // txtBoxLastName
             // 
-            textBox3.Location = new Point(12, 145);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(435, 23);
-            textBox3.TabIndex = 6;
+            txtBoxLastName.Location = new Point(12, 145);
+            txtBoxLastName.Name = "txtBoxLastName";
+            txtBoxLastName.Size = new Size(435, 23);
+            txtBoxLastName.TabIndex = 6;
             // 
             // label4
             // 
@@ -99,12 +101,12 @@
             label4.TabIndex = 5;
             label4.Text = "Last Name";
             // 
-            // textBox4
+            // txtBoxAge
             // 
-            textBox4.Location = new Point(12, 204);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(435, 23);
-            textBox4.TabIndex = 8;
+            txtBoxAge.Location = new Point(12, 204);
+            txtBoxAge.Name = "txtBoxAge";
+            txtBoxAge.Size = new Size(435, 23);
+            txtBoxAge.TabIndex = 8;
             // 
             // label5
             // 
@@ -115,12 +117,12 @@
             label5.TabIndex = 7;
             label5.Text = "Age";
             // 
-            // textBox5
+            // txtBoxCourse
             // 
-            textBox5.Location = new Point(12, 260);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(435, 23);
-            textBox5.TabIndex = 10;
+            txtBoxCourse.Location = new Point(12, 260);
+            txtBoxCourse.Name = "txtBoxCourse";
+            txtBoxCourse.Size = new Size(435, 23);
+            txtBoxCourse.TabIndex = 10;
             // 
             // label6
             // 
@@ -131,23 +133,50 @@
             label6.TabIndex = 9;
             label6.Text = "Course";
             // 
+            // DeleteBtn
+            // 
+            DeleteBtn.BackColor = Color.IndianRed;
+            DeleteBtn.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            DeleteBtn.ForeColor = SystemColors.Control;
+            DeleteBtn.Location = new Point(12, 309);
+            DeleteBtn.Name = "DeleteBtn";
+            DeleteBtn.Size = new Size(214, 33);
+            DeleteBtn.TabIndex = 11;
+            DeleteBtn.Text = "Delete";
+            DeleteBtn.UseVisualStyleBackColor = false;
+            // 
+            // UpdateBtn
+            // 
+            UpdateBtn.BackColor = SystemColors.ActiveCaption;
+            UpdateBtn.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            UpdateBtn.ForeColor = SystemColors.Control;
+            UpdateBtn.Location = new Point(232, 309);
+            UpdateBtn.Name = "UpdateBtn";
+            UpdateBtn.Size = new Size(215, 33);
+            UpdateBtn.TabIndex = 12;
+            UpdateBtn.Text = "Update";
+            UpdateBtn.UseVisualStyleBackColor = false;
+            // 
             // UpdateDeleteForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(459, 379);
-            Controls.Add(textBox5);
+            Controls.Add(UpdateBtn);
+            Controls.Add(DeleteBtn);
+            Controls.Add(txtBoxCourse);
             Controls.Add(label6);
-            Controls.Add(textBox4);
+            Controls.Add(txtBoxAge);
             Controls.Add(label5);
-            Controls.Add(textBox3);
+            Controls.Add(txtBoxLastName);
             Controls.Add(label4);
-            Controls.Add(textBox2);
+            Controls.Add(txtBoxFirstName);
             Controls.Add(label3);
             Controls.Add(label2);
-            Controls.Add(textBox1);
+            Controls.Add(txtBoxId);
             Controls.Add(label1);
             Name = "UpdateDeleteForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Update/Delete Students";
             ResumeLayout(false);
             PerformLayout();
@@ -166,5 +195,12 @@
         private Label label5;
         private TextBox textBox5;
         private Label label6;
+        private Button DeleteBtn;
+        private Button UpdateBtn;
+        private TextBox txtBoxId;
+        private TextBox txtBoxFirstName;
+        private TextBox txtBoxLastName;
+        private TextBox txtBoxAge;
+        private TextBox txtBoxCourse;
     }
 }
