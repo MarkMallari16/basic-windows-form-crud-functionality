@@ -58,5 +58,43 @@ namespace FirstWinForm.Repositories
 
             }
         }
+
+        public bool Update(Student student)
+        {
+            string query = @"UPDATE students SET
+                            first_name = @firstName
+                            last_name = @lastName
+                            age = @age
+                            course = @course
+                            WHERE id = @id";
+            using (var conn = DatabaseHelper.GetConnection())
+            using (var cmd = new SqlCommand(query, conn))
+            {
+                cmd.Parameters.Add("@id", SqlDbType.Int).Value = student.StudentId;
+                cmd.Parameters.Add("@firstName", SqlDbType.NVarChar).Value = student.FirstName;
+                cmd.Parameters.Add("@lastName", SqlDbType.NVarChar).Value = student.LastName;
+                cmd.Parameters.Add("@age", SqlDbType.NVarChar).Value = student.Age;
+                cmd.Parameters.Add("@course", SqlDbType.NVarChar).Value = student.Course;
+
+                conn.Open();
+
+                return cmd.ExecuteNonQuery() > 0;
+            }
+        }
+
+        public bool Delete(int id)
+        {
+            string query = @"DELETE FROM students WHERE id = @id";
+
+            using (var conn = DatabaseHelper.GetConnection())
+            using (var cmd = new SqlCommand(query, conn))
+            {
+                cmd.Parameters.Add("@id", SqlDbType.Int).Value = id;
+
+                conn.Open();
+
+                return cmd.ExecuteNonQuery() > 0;
+            }
+        }
     }
 }
