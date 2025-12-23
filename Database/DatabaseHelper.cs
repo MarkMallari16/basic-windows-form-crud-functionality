@@ -13,5 +13,6 @@ namespace FirstWinForm.Database
         {
             return new SqlConnection(connectionString);
         }
+
     }
 }

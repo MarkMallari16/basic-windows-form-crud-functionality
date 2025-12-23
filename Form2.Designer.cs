@@ -39,6 +39,7 @@
             txtBoxLastName = new TextBox();
             label2 = new Label();
             dataTblGridStudent = new DataGridView();
+            cbCourse = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dataTblGridStudent).BeginInit();
             SuspendLayout();
             // 
@@ -109,7 +110,7 @@
             BtnAdd.ForeColor = SystemColors.Control;
             BtnAdd.Location = new Point(21, 307);
             BtnAdd.Name = "BtnAdd";
-            BtnAdd.Size = new Size(388, 33);
+            BtnAdd.Size = new Size(388, 37);
             BtnAdd.TabIndex = 11;
             BtnAdd.Text = "Add";
             BtnAdd.UseVisualStyleBackColor = false;
@@ -134,18 +135,27 @@
             // dataTblGridStudent
             // 
             dataTblGridStudent.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataTblGridStudent.Location = new Point(443, 39);
+            dataTblGridStudent.Location = new Point(453, 31);
             dataTblGridStudent.Name = "dataTblGridStudent";
-            dataTblGridStudent.Size = new Size(641, 424);
+            dataTblGridStudent.Size = new Size(791, 439);
             dataTblGridStudent.TabIndex = 13;
             dataTblGridStudent.CellContentClick += dataTblGridStudent_CellContentClick;
             dataTblGridStudent.CellMouseDoubleClick += dataTblGridStudent_CellMouseDoubleClick;
+            // 
+            // cbCourse
+            // 
+            cbCourse.FormattingEnabled = true;
+            cbCourse.Location = new Point(21, 369);
+            cbCourse.Name = "cbCourse";
+            cbCourse.Size = new Size(107, 23);
+            cbCourse.TabIndex = 14;
             // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1129, 559);
+            ClientSize = new Size(1268, 559);
+            Controls.Add(cbCourse);
             Controls.Add(txtBoxLastName);
             Controls.Add(label2);
             Controls.Add(BtnAdd);
@@ -180,5 +190,6 @@
         private DataGridView dataTblGridStudent;
         private TextBox txtBoxLastName;
         private Label label2;
+        private ComboBox cbCourse;
     }
 }

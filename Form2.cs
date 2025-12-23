@@ -1,7 +1,6 @@
-﻿using FirstWinForm.Database;
-using Microsoft.Data.SqlClient;
+﻿using FirstWinForm.Models;
+using FirstWinForm.Repositories;
 using System.Data;
-
 namespace FirstWinForm
 {
     public partial class Form2 : Form
@@ -11,60 +10,19 @@ namespace FirstWinForm
         public Form2()
         {
             InitializeComponent();
-            InitializeDataTable();
-
-        }
-
-        private void InitializeDataTable()
-        {
-            table = new DataTable();
-
-            table.Columns.Add("Student ID", typeof(int));
-            table.Columns.Add("Student First Name", typeof(string));
-            table.Columns.Add("Student Last Name", typeof(string));
-            table.Columns.Add("Student Age", typeof(string));
-            table.Columns.Add("Student Course", typeof(string));
-
-            dataTblGridStudent.DataSource = table;
-            dataTblGridStudent.AllowUserToAddRows = false;
-            dataTblGridStudent.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataTblGridStudent.MultiSelect = false;
-            dataTblGridStudent.CellDoubleClick += dataTblGridStudent_CellClick;
-
             LoadStudents();
+
         }
 
         private void LoadStudents()
         {
-            try
-            {
-                using (SqlConnection conn = DatabaseHelper.GetConnection())
-                using (SqlCommand cmd = new SqlCommand("SELECT * FROM students", conn))
-                using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
-                {
-                    DataTable dt = new DataTable();
-                    adapter.Fill(dt);
+            StudentRepository repo = new StudentRepository();
+            dataTblGridStudent.DataSource = repo.GetAll();
+            dataTblGridStudent.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataTblGridStudent.Columns["StudentId"].HeaderText = "Student ID";
+            dataTblGridStudent.Columns["FirstName"].HeaderText = "First Name";
+            dataTblGridStudent.Columns["LastName"].HeaderText = "Last Name";
 
-                    dataTblGridStudent.DataSource = dt;
-
-                    dataTblGridStudent.Columns["id"].HeaderText = "Student ID";
-                    dataTblGridStudent.Columns["first_name"].HeaderText = "Student First Name";
-                    dataTblGridStudent.Columns["last_name"].HeaderText = "Student Last Name";
-                    dataTblGridStudent.Columns["age"].HeaderText = "Student Age";
-                    dataTblGridStudent.Columns["course"].HeaderText = "Student Course";
-                    dataTblGridStudent.Columns["created_at"].HeaderText = "Created At";
-                    dataTblGridStudent.Columns["updated_at"].HeaderText = "Updated At";
-
-                    dataTblGridStudent.AllowUserToAddRows = false;
-                    dataTblGridStudent.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-                    dataTblGridStudent.MultiSelect = false;
-                }
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error loading students: " + ex.Message);
-            }
         }
         private void ResetAllInputs()
         {
@@ -123,41 +81,23 @@ namespace FirstWinForm
                 return;
             }
 
-            try
+            Student student = new Student
             {
-                string query = "INSERT INTO Students (first_name, last_name, age, course) VALUES (@first_name, @last_name," +
-               "@age, @course)";
+                FirstName = txtBoxFirstName.Text,
+                LastName = txtBoxLastName.Text,
+                Age = Convert.ToInt32(txtBoxAge.Text),
+                Course = txtBoxCourse.Text
+            };
 
-                using (SqlConnection conn = DatabaseHelper.GetConnection())
+            StudentRepository repo = new StudentRepository();
 
-                using (SqlCommand cmd = new SqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@first_name", txtBoxFirstName.Text);
-                    cmd.Parameters.AddWithValue("@last_name", txtBoxLastName.Text);
-                    cmd.Parameters.AddWithValue("@age", txtBoxAge.Text);
-                    cmd.Parameters.AddWithValue("@course", txtBoxCourse.Text);
 
-                    conn.Open();
-                    int rows = cmd.ExecuteNonQuery();
-
-                    if (rows > 0)
-                    {
-                        MessageBox.Show("Student added successfully!.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        LoadStudents();
-                        ResetAllInputs();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Failed to add student.");
-                    }
-
-                }
-            }
-            catch (Exception ex)
+            if (repo.Add(student))
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show("Student successfully added.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LoadStudents();
+                ResetAllInputs();
             }
-
         }
 
         private void dataTblGridStudent_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -187,11 +127,11 @@ namespace FirstWinForm
             {
                 DataGridViewRow row = dataTblGridStudent.Rows[e.RowIndex];
 
-                int studentId = Convert.ToInt32(row.Cells["id"].Value);
-                string firstName = row.Cells["first_name"].Value.ToString();
-                string lastName = row.Cells["last_name"].Value.ToString();
-                string age = row.Cells["age"].Value.ToString();
-                string course = row.Cells["course"].Value.ToString();
+                int studentId = Convert.ToInt32(row.Cells["StudentId"].Value);
+                string firstName = row.Cells["FirstName"].Value.ToString();
+                string lastName = row.Cells["LastName"].Value.ToString();
+                string age = row.Cells["Age"].Value.ToString();
+                string course = row.Cells["Course"].Value.ToString();
 
                 UpdateDeleteForm updateForm = new UpdateDeleteForm(studentId, firstName, lastName, age, course);
                 updateForm.ShowDialog();

@@ -1,21 +1,14 @@
-using System.Configuration;
-
 namespace FirstWinForm
 {
     public partial class Form1 : Form
     {
         private string username = "Mark";
         private string password = "Mark123";
-        private string connectionString = ConfigurationManager.ConnectionStrings["college_student_management"].ConnectionString;
-
 
         public Form1()
         {
             InitializeComponent();
-
-
         }
-
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
@@ -24,7 +17,7 @@ namespace FirstWinForm
 
             if (username.Equals(inputUsername) && password.Equals(inputPassword))
             {
-                MessageBox.Show("Login Successful!", "Success", MessageBoxButtons.OK);
+                MessageBox.Show("Login Successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 Form2 form2 = new Form2();
                 form2.Show();
@@ -33,7 +26,7 @@ namespace FirstWinForm
             }
             else
             {
-                MessageBox.Show("Invalid username or password.", "Error", MessageBoxButtons.OK);
+                MessageBox.Show("Invalid username or password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
