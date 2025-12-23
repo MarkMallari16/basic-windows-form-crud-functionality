@@ -47,6 +47,14 @@ namespace FirstWinForm
 
                     dataTblGridStudent.DataSource = dt;
 
+                    dataTblGridStudent.Columns["id"].HeaderText = "Student ID";
+                    dataTblGridStudent.Columns["first_name"].HeaderText = "Student First Name";
+                    dataTblGridStudent.Columns["last_name"].HeaderText = "Student Last Name";
+                    dataTblGridStudent.Columns["age"].HeaderText = "Student Age";
+                    dataTblGridStudent.Columns["course"].HeaderText = "Student Course";
+                    dataTblGridStudent.Columns["created_at"].HeaderText = "Created At";
+                    dataTblGridStudent.Columns["updated_at"].HeaderText = "Updated At";
+
                     dataTblGridStudent.AllowUserToAddRows = false;
                     dataTblGridStudent.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
                     dataTblGridStudent.MultiSelect = false;
@@ -134,7 +142,7 @@ namespace FirstWinForm
 
                     if (rows > 0)
                     {
-                        MessageBox.Show("Student added successfully!.");
+                        MessageBox.Show("Student added successfully!.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         LoadStudents();
                         ResetAllInputs();
                     }
@@ -155,9 +163,6 @@ namespace FirstWinForm
         private void dataTblGridStudent_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
-
-
-
 
         }
 

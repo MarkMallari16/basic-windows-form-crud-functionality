@@ -75,7 +75,7 @@ namespace FirstWinForm
                     conn.Open();
 
                     string query = "UPDATE students SET first_name = @firstName, last_name = @lastName, age = @age," +
-                        "course = course WHERE id = @id";
+                        "course = @course WHERE id = @id";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
