@@ -1,22 +1,24 @@
-﻿using FirstWinForm.Database;
-using Microsoft.Data.SqlClient;
+﻿using FirstWinForm.Models;
+using FirstWinForm.Repositories;
 
 namespace FirstWinForm
 {
     public partial class UpdateDeleteForm : Form
     {
-        private int _id;
-        private string _firstName, _lastName, _age, _course;
+        private Student student;
 
         public UpdateDeleteForm(int id, string firstName, string lastName, string age, string course)
         {
             InitializeComponent();
 
-            _id = id;
-            _firstName = firstName;
-            _lastName = lastName;
-            _age = age;
-            _course = course;
+            student = new Student
+            {
+                StudentId = id,
+                FirstName = firstName,
+                LastName = lastName,
+                Age = age,
+                Course = course
+            };
 
             txtBoxId.Text = id.ToString();
             txtBoxFirstName.Text = firstName;
@@ -32,76 +34,32 @@ namespace FirstWinForm
 
             if (result == DialogResult.Yes)
             {
-                try
+                StudentRepository repo = new StudentRepository();
+
+                if (repo.Delete(student.StudentId))
                 {
-                    using (SqlConnection conn = DatabaseHelper.GetConnection())
-                    {
-                        conn.Open();
-
-                        string query = "DELETE FROM students WHERE id = @id";
-
-                        using (SqlCommand cmd = new SqlCommand(query, conn))
-                        {
-                            cmd.Parameters.AddWithValue("@id", _id);
-                            int rowsAffected = cmd.ExecuteNonQuery();
-
-                            if (rowsAffected > 0)
-                            {
-                                MessageBox.Show("Student deleted successfully.", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                this.Close();
-                                conn.Close();
-                            }
-                            else
-                            {
-                                MessageBox.Show("Delete failed. Student not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                conn.Close();
-                            }
-                        }
-                    }
+                    MessageBox.Show("Student deleted successfully.", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show("Error: ", ex.Message);
+                    MessageBox.Show("Delete failed. Student not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
 
         private void UpdateBtn_Click(object sender, EventArgs e)
         {
-            try
+            StudentRepository repo = new StudentRepository();
+
+            if (repo.Update(student))
             {
-                using (SqlConnection conn = DatabaseHelper.GetConnection())
-                {
-                    conn.Open();
-
-                    string query = "UPDATE students SET first_name = @firstName, last_name = @lastName, age = @age," +
-                        "course = @course WHERE id = @id";
-
-                    using (SqlCommand cmd = new SqlCommand(query, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@id", txtBoxId.Text);
-                        cmd.Parameters.AddWithValue("@firstName", txtBoxFirstName.Text);
-                        cmd.Parameters.AddWithValue("@lastName", txtBoxLastName.Text);
-                        cmd.Parameters.AddWithValue("@age", txtBoxAge.Text);
-                        cmd.Parameters.AddWithValue("@course", txtBoxCourse.Text);
-
-                        int rowsAffected = cmd.ExecuteNonQuery();
-
-                        if (rowsAffected > 0)
-                        {
-                            MessageBox.Show("Student updated successfully.", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            this.Close();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Update failed. Student not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
-                }
+                MessageBox.Show("Student updated successfully.", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Error: ", ex.Message);
+                MessageBox.Show("Update failed. Student not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
