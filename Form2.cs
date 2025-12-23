@@ -29,8 +29,33 @@ namespace FirstWinForm
             dataTblGridStudent.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataTblGridStudent.MultiSelect = false;
             dataTblGridStudent.CellClick += dataTblGridStudent_CellClick;
-        }
 
+            LoadStudents();
+        }
+        private void LoadStudents()
+        {
+            try
+            {
+                using (SqlConnection conn = DatabaseHelper.GetConnection())
+                using (SqlCommand cmd = new SqlCommand("SELECT * FROM students", conn))
+                using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                {
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+
+                    dataTblGridStudent.DataSource = dt;
+
+                    dataTblGridStudent.AllowUserToAddRows = false;
+                    dataTblGridStudent.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                    dataTblGridStudent.MultiSelect = false;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading students: " + ex.Message);
+            }
+        }
         private void ResetAllInputs()
         {
             txtBoxFirstName.Clear();
@@ -58,11 +83,6 @@ namespace FirstWinForm
 
             try
             {
-                if (IsValidations())
-                {
-                    return;
-                }
-
                 using (SqlConnection conn = DatabaseHelper.GetConnection())
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
@@ -77,6 +97,7 @@ namespace FirstWinForm
                     if (rows > 0)
                     {
                         MessageBox.Show("Student added successfully!.");
+                        LoadStudents();
                         ResetAllInputs();
                     }
                     else
@@ -92,7 +113,6 @@ namespace FirstWinForm
             }
 
         }
-
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {

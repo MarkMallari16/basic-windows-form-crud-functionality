@@ -148,7 +148,7 @@
             BtnAdd.TabIndex = 13;
             BtnAdd.Text = "Add";
             BtnAdd.UseVisualStyleBackColor = false;
-            BtnAdd.Click += btnAdd_Click;
+            BtnAdd.Click += BtnAdd_Click;
             // 
             // txtBoxLastName
             // 
