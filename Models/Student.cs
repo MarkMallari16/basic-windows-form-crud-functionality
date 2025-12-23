@@ -6,7 +6,7 @@
     {
         private int studentId;
         private string firstName, lastName;
-        private int age;
+        private string age;
         private string course;
 
         public int StudentId
@@ -27,7 +27,7 @@
             set => lastName = value;
         }
 
-        public int Age
+        public string Age
         {
             get => age;
             set => age = value;
