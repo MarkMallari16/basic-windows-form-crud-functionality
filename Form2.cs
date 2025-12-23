@@ -33,6 +33,7 @@ namespace FirstWinForm
 
             LoadStudents();
         }
+
         private void LoadStudents()
         {
             try
@@ -64,27 +65,63 @@ namespace FirstWinForm
             txtBoxAge.Clear();
             txtBoxCourse.Clear();
         }
-        private bool IsValidations()
+        private bool HasValidations()
         {
-            if (string.IsNullOrEmpty(txtBoxFirstName.Text) ||
-                string.IsNullOrEmpty(txtBoxAge.Text) || string.IsNullOrEmpty(txtBoxCourse.Text))
+            if (string.IsNullOrWhiteSpace(txtBoxFirstName.Text))
             {
-                MessageBox.Show("Please fill all inputs.");
+                MessageBox.Show("First name is required.", "Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtBoxFirstName.Focus();
                 return false;
             }
 
+            if (string.IsNullOrWhiteSpace(txtBoxLastName.Text))
+            {
+                MessageBox.Show("First name is required.", "Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtBoxLastName.Focus();
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtBoxAge.Text))
+            {
+                MessageBox.Show("Age is required.", "Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtBoxAge.Focus();
+                return false;
+            }
+
+
+            int age = Convert.ToInt32(txtBoxAge.Text);
+
+            if (age < 1 || age > 120)
+            {
+                MessageBox.Show("Age must be realistic", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtBoxAge.Focus();
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtBoxCourse.Text))
+            {
+                MessageBox.Show("Course is required.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtBoxCourse.Focus();
+                return false;
+            }
 
             return true;
         }
         private void BtnAdd_Click(object sender, EventArgs e)
         {
-            string query = "INSERT INTO Students (first_name, last_name, age, course) VALUES (@first_name, @last_name," +
-                "@age, @course)";
 
+            if (!HasValidations())
+            {
+                return;
+            }
 
             try
             {
+                string query = "INSERT INTO Students (first_name, last_name, age, course) VALUES (@first_name, @last_name," +
+               "@age, @course)";
+
                 using (SqlConnection conn = DatabaseHelper.GetConnection())
+
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@first_name", txtBoxFirstName.Text);
@@ -155,6 +192,14 @@ namespace FirstWinForm
                 updateForm.ShowDialog();
 
                 LoadStudents();
+            }
+        }
+
+        private void txtBoxAge_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
             }
         }
     }

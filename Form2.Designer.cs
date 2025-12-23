@@ -74,7 +74,8 @@
             txtBoxAge.Location = new Point(21, 206);
             txtBoxAge.Name = "txtBoxAge";
             txtBoxAge.Size = new Size(388, 23);
-            txtBoxAge.TabIndex = 6;
+            txtBoxAge.TabIndex = 8;
+            txtBoxAge.KeyPress += txtBoxAge_KeyPress;
             // 
             // label4
             // 
@@ -82,7 +83,7 @@
             label4.Location = new Point(21, 188);
             label4.Name = "label4";
             label4.Size = new Size(72, 15);
-            label4.TabIndex = 5;
+            label4.TabIndex = 7;
             label4.Text = "Student Age";
             // 
             // txtBoxCourse
@@ -90,7 +91,7 @@
             txtBoxCourse.Location = new Point(21, 266);
             txtBoxCourse.Name = "txtBoxCourse";
             txtBoxCourse.Size = new Size(388, 23);
-            txtBoxCourse.TabIndex = 8;
+            txtBoxCourse.TabIndex = 10;
             // 
             // label5
             // 
@@ -98,7 +99,7 @@
             label5.Location = new Point(21, 248);
             label5.Name = "label5";
             label5.Size = new Size(88, 15);
-            label5.TabIndex = 7;
+            label5.TabIndex = 9;
             label5.Text = "Student Course";
             // 
             // BtnAdd
@@ -109,7 +110,7 @@
             BtnAdd.Location = new Point(21, 307);
             BtnAdd.Name = "BtnAdd";
             BtnAdd.Size = new Size(388, 33);
-            BtnAdd.TabIndex = 13;
+            BtnAdd.TabIndex = 11;
             BtnAdd.Text = "Add";
             BtnAdd.UseVisualStyleBackColor = false;
             BtnAdd.Click += BtnAdd_Click;
@@ -119,7 +120,7 @@
             txtBoxLastName.Location = new Point(21, 152);
             txtBoxLastName.Name = "txtBoxLastName";
             txtBoxLastName.Size = new Size(388, 23);
-            txtBoxLastName.TabIndex = 15;
+            txtBoxLastName.TabIndex = 6;
             // 
             // label2
             // 
@@ -127,7 +128,7 @@
             label2.Location = new Point(21, 131);
             label2.Name = "label2";
             label2.Size = new Size(107, 15);
-            label2.TabIndex = 14;
+            label2.TabIndex = 5;
             label2.Text = "Student Last Name";
             // 
             // dataTblGridStudent
@@ -136,7 +137,7 @@
             dataTblGridStudent.Location = new Point(443, 39);
             dataTblGridStudent.Name = "dataTblGridStudent";
             dataTblGridStudent.Size = new Size(641, 424);
-            dataTblGridStudent.TabIndex = 9;
+            dataTblGridStudent.TabIndex = 13;
             dataTblGridStudent.CellContentClick += dataTblGridStudent_CellContentClick;
             dataTblGridStudent.CellMouseDoubleClick += dataTblGridStudent_CellMouseDoubleClick;
             // 
