@@ -140,10 +140,11 @@
             DeleteBtn.ForeColor = SystemColors.Control;
             DeleteBtn.Location = new Point(12, 309);
             DeleteBtn.Name = "DeleteBtn";
-            DeleteBtn.Size = new Size(214, 33);
+            DeleteBtn.Size = new Size(214, 43);
             DeleteBtn.TabIndex = 11;
             DeleteBtn.Text = "Delete";
             DeleteBtn.UseVisualStyleBackColor = false;
+            DeleteBtn.Click += DeleteBtn_Click;
             // 
             // UpdateBtn
             // 
@@ -152,10 +153,11 @@
             UpdateBtn.ForeColor = SystemColors.Control;
             UpdateBtn.Location = new Point(232, 309);
             UpdateBtn.Name = "UpdateBtn";
-            UpdateBtn.Size = new Size(215, 33);
+            UpdateBtn.Size = new Size(215, 43);
             UpdateBtn.TabIndex = 12;
             UpdateBtn.Text = "Update";
             UpdateBtn.UseVisualStyleBackColor = false;
+            UpdateBtn.Click += UpdateBtn_Click;
             // 
             // UpdateDeleteForm
             // 
