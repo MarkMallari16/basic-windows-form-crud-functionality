@@ -27,7 +27,7 @@ namespace FirstWinForm.Repositories
                             StudentId = reader.GetInt32(0),
                             FirstName = reader.GetString(1),
                             LastName = reader.GetString(2),
-                            Age = reader.GetInt32(3),
+                            Age = reader.GetInt32(3).ToString(),
                             Course = reader.GetString(4),
                         });
 
