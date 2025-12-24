@@ -147,8 +147,9 @@
             cbCourse.FormattingEnabled = true;
             cbCourse.Location = new Point(21, 369);
             cbCourse.Name = "cbCourse";
-            cbCourse.Size = new Size(107, 23);
+            cbCourse.Size = new Size(388, 23);
             cbCourse.TabIndex = 14;
+            cbCourse.SelectedIndexChanged += cbCourse_SelectedIndexChanged;
             // 
             // Form2
             // 

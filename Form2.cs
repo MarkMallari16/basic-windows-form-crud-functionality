@@ -11,6 +11,15 @@ namespace FirstWinForm
         {
             InitializeComponent();
             LoadStudents();
+            cbCourse.Items.Add("Select Course");
+            cbCourse.Items.Add("BSIT");
+            cbCourse.Items.Add("BSCS");
+            cbCourse.Items.Add("BSCE");
+            cbCourse.Items.Add("BSIS");
+
+            cbCourse.SelectedIndex = 0;
+
+            cbCourse.DropDownStyle = ComboBoxStyle.DropDownList;
 
         }
 
@@ -22,7 +31,6 @@ namespace FirstWinForm
             dataTblGridStudent.Columns["StudentId"].HeaderText = "Student ID";
             dataTblGridStudent.Columns["FirstName"].HeaderText = "First Name";
             dataTblGridStudent.Columns["LastName"].HeaderText = "Last Name";
-
         }
         private void ResetAllInputs()
         {
@@ -85,7 +93,7 @@ namespace FirstWinForm
             {
                 FirstName = txtBoxFirstName.Text,
                 LastName = txtBoxLastName.Text,
-                Age = Convert.ToInt32(txtBoxAge.Text),
+                Age = txtBoxAge.Text,
                 Course = txtBoxCourse.Text
             };
 
@@ -145,6 +153,11 @@ namespace FirstWinForm
             {
                 e.Handled = true;
             }
+        }
+
+        private void cbCourse_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
