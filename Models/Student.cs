@@ -1,7 +1,5 @@
 ﻿namespace FirstWinForm.Models
 {
-
-
     public class Student
     {
         private int studentId;
@@ -14,7 +12,6 @@
             get => studentId;
             set => studentId = value;
         }
-
         public string FirstName
         {
             get => firstName;
