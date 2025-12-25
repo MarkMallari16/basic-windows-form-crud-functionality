@@ -13,8 +13,8 @@ namespace FirstWinForm.Repositories
 
             string query = "SElECT * FROM students";
 
-            using (var conn = DatabaseHelper.GetConnection())
-            using (var cmd = new SqlCommand(query, conn))
+            using (SqlConnection conn = DatabaseHelper.GetConnection())
+            using (SqlCommand cmd = new SqlCommand(query, conn))
             {
                 conn.Open();
 
@@ -44,8 +44,8 @@ namespace FirstWinForm.Repositories
         {
             string query = @"INSERT INTO students(first_name,last_name,age,course) VALUES (@firstName,@lastName,@age,@course)";
 
-            using (var conn = DatabaseHelper.GetConnection())
-            using (var cmd = new SqlCommand(query, conn))
+            using (SqlConnection conn = DatabaseHelper.GetConnection())
+            using (SqlCommand cmd = new SqlCommand(query, conn))
             {
                 cmd.Parameters.Add("@firstName", SqlDbType.NVarChar).Value = student.FirstName;
                 cmd.Parameters.Add("@lastName", SqlDbType.NVarChar).Value = student.LastName;
@@ -67,8 +67,8 @@ namespace FirstWinForm.Repositories
                             age = @age
                             course = @course
                             WHERE id = @id";
-            using (var conn = DatabaseHelper.GetConnection())
-            using (var cmd = new SqlCommand(query, conn))
+            using (SqlConnection conn = DatabaseHelper.GetConnection())
+            using (SqlCommand cmd = new SqlCommand(query, conn))
             {
                 cmd.Parameters.Add("@id", SqlDbType.Int).Value = student.StudentId;
                 cmd.Parameters.Add("@firstName", SqlDbType.NVarChar).Value = student.FirstName;
@@ -86,8 +86,8 @@ namespace FirstWinForm.Repositories
         {
             string query = @"DELETE FROM students WHERE id = @id";
 
-            using (var conn = DatabaseHelper.GetConnection())
-            using (var cmd = new SqlCommand(query, conn))
+            using (SqlConnection conn = DatabaseHelper.GetConnection())
+            using (SqlCommand cmd = new SqlCommand(query, conn))
             {
                 cmd.Parameters.Add("@id", SqlDbType.Int).Value = id;
 
