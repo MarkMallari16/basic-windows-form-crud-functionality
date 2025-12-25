@@ -117,7 +117,16 @@ namespace FirstWinForm
                 string age = row.Cells["Age"].Value.ToString();
                 string course = row.Cells["Course"].Value.ToString();
 
-                UpdateDeleteForm updateForm = new UpdateDeleteForm(studentId, firstName, lastName, age, course);
+                Student student = new Student
+                {
+                    StudentId = studentId,
+                    FirstName = firstName,
+                    LastName = lastName,
+                    Age = age,
+                    Course = course
+                };
+
+                UpdateDeleteForm updateForm = new UpdateDeleteForm(student);
                 updateForm.ShowDialog();
 
                 LoadStudents();

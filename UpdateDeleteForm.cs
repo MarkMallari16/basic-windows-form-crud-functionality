@@ -5,26 +5,21 @@ namespace FirstWinForm
 {
     public partial class UpdateDeleteForm : Form
     {
-        private Student student;
+        private Student _student;
 
-        public UpdateDeleteForm(int id, string firstName, string lastName, string age, string course)
+        public UpdateDeleteForm(Student student)
         {
             InitializeComponent();
 
-            student = new Student
-            {
-                StudentId = id,
-                FirstName = firstName,
-                LastName = lastName,
-                Age = age,
-                Course = course
-            };
+            _student = student;
 
-            txtBoxId.Text = id.ToString();
-            txtBoxFirstName.Text = firstName;
-            txtBoxLastName.Text = lastName;
-            txtBoxAge.Text = age;
-            txtBoxCourse.Text = course;
+            //Filled only the inputs
+            txtBoxId.Text = student.StudentId.ToString();
+            txtBoxFirstName.Text = student.FirstName;
+            txtBoxLastName.Text = student.LastName;
+            txtBoxAge.Text = student.Age;
+            txtBoxCourse.Text = student.Course;
+
         }
 
         private void DeleteBtn_Click(object sender, EventArgs e)
@@ -36,7 +31,7 @@ namespace FirstWinForm
             {
                 StudentRepository repo = new StudentRepository();
 
-                if (repo.Delete(student.StudentId))
+                if (repo.Delete(_student.StudentId))
                 {
                     MessageBox.Show("Student deleted successfully.", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
@@ -50,9 +45,15 @@ namespace FirstWinForm
 
         private void UpdateBtn_Click(object sender, EventArgs e)
         {
+            _student.StudentId = Convert.ToInt32(txtBoxId.Text);
+            _student.FirstName = txtBoxFirstName.Text;
+            _student.LastName = txtBoxLastName.Text;
+            _student.Age = txtBoxAge.Text;
+            _student.Course = txtBoxCourse.Text;
+
             StudentRepository repo = new StudentRepository();
 
-            if (repo.Update(student))
+            if (repo.Update(_student))
             {
                 MessageBox.Show("Student updated successfully.", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();

@@ -62,9 +62,9 @@ namespace FirstWinForm.Repositories
         public bool Update(Student student)
         {
             string query = @"UPDATE students SET
-                            first_name = @firstName
-                            last_name = @lastName
-                            age = @age
+                            first_name = @firstName,
+                            last_name = @lastName,
+                            age = @age,
                             course = @course
                             WHERE id = @id";
             using (SqlConnection conn = DatabaseHelper.GetConnection())
