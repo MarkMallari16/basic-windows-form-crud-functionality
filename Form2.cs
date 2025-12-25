@@ -105,23 +105,6 @@ namespace FirstWinForm
             }
         }
 
-        private void dataTblGridStudent_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex < 0) return;
-
-        }
-
-        private void txtBoxName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void dataTblGridStudent_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void dataTblGridStudent_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -147,11 +130,6 @@ namespace FirstWinForm
             {
                 e.Handled = true;
             }
-        }
-
-        private void cbCourse_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

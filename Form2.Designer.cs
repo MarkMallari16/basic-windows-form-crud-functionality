@@ -48,9 +48,9 @@
             label1.Font = new Font("Segoe UI", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.Location = new Point(12, 9);
             label1.Name = "label1";
-            label1.Size = new Size(174, 40);
+            label1.Size = new Size(321, 40);
             label1.TabIndex = 0;
-            label1.Text = "Basic CRUD";
+            label1.Text = "Basic CRUD Operation";
             // 
             // txtBoxFirstName
             // 
@@ -58,7 +58,6 @@
             txtBoxFirstName.Name = "txtBoxFirstName";
             txtBoxFirstName.Size = new Size(388, 23);
             txtBoxFirstName.TabIndex = 4;
-            txtBoxFirstName.TextChanged += txtBoxName_TextChanged;
             // 
             // label3
             // 
@@ -131,7 +130,6 @@
             dataTblGridStudent.Name = "dataTblGridStudent";
             dataTblGridStudent.Size = new Size(791, 439);
             dataTblGridStudent.TabIndex = 13;
-            dataTblGridStudent.CellContentClick += dataTblGridStudent_CellContentClick;
             dataTblGridStudent.CellMouseDoubleClick += dataTblGridStudent_CellMouseDoubleClick;
             // 
             // cbCourse
@@ -141,13 +139,12 @@
             cbCourse.Name = "cbCourse";
             cbCourse.Size = new Size(388, 23);
             cbCourse.TabIndex = 14;
-            cbCourse.SelectedIndexChanged += cbCourse_SelectedIndexChanged;
             // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1268, 559);
+            ClientSize = new Size(1268, 510);
             Controls.Add(cbCourse);
             Controls.Add(txtBoxLastName);
             Controls.Add(label2);
