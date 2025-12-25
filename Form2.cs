@@ -8,6 +8,11 @@ namespace FirstWinForm
         {
             InitializeComponent();
             LoadStudents();
+            InitializeCourseComboBox();
+        }
+
+        private void InitializeCourseComboBox()
+        {
             cbCourse.Items.Add("Select Course");
             cbCourse.Items.Add("BSIT");
             cbCourse.Items.Add("BSCS");
@@ -17,9 +22,7 @@ namespace FirstWinForm
             cbCourse.SelectedIndex = 0;
 
             cbCourse.DropDownStyle = ComboBoxStyle.DropDownList;
-
         }
-
         private void LoadStudents()
         {
             StudentRepository repo = new StudentRepository();
@@ -57,7 +60,6 @@ namespace FirstWinForm
                 txtBoxAge.Focus();
                 return false;
             }
-
 
             int age = Convert.ToInt32(txtBoxAge.Text);
 
@@ -114,10 +116,6 @@ namespace FirstWinForm
 
         }
 
-        private void Form2_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void dataTblGridStudent_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {

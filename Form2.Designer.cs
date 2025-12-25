@@ -162,7 +162,6 @@
             Name = "Form2";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form2";
-            Load += Form2_Load;
             ((System.ComponentModel.ISupportInitialize)dataTblGridStudent).EndInit();
             ResumeLayout(false);
             PerformLayout();
