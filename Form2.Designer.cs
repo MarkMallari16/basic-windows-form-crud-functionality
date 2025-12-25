@@ -33,7 +33,6 @@
             label3 = new Label();
             txtBoxAge = new TextBox();
             label4 = new Label();
-            txtBoxCourse = new TextBox();
             label5 = new Label();
             BtnAdd = new Button();
             txtBoxLastName = new TextBox();
@@ -87,13 +86,6 @@
             label4.TabIndex = 7;
             label4.Text = "Student Age";
             // 
-            // txtBoxCourse
-            // 
-            txtBoxCourse.Location = new Point(21, 266);
-            txtBoxCourse.Name = "txtBoxCourse";
-            txtBoxCourse.Size = new Size(388, 23);
-            txtBoxCourse.TabIndex = 10;
-            // 
             // label5
             // 
             label5.AutoSize = true;
@@ -108,7 +100,7 @@
             BtnAdd.BackColor = SystemColors.ActiveCaptionText;
             BtnAdd.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BtnAdd.ForeColor = SystemColors.Control;
-            BtnAdd.Location = new Point(21, 307);
+            BtnAdd.Location = new Point(21, 305);
             BtnAdd.Name = "BtnAdd";
             BtnAdd.Size = new Size(388, 37);
             BtnAdd.TabIndex = 11;
@@ -145,7 +137,7 @@
             // cbCourse
             // 
             cbCourse.FormattingEnabled = true;
-            cbCourse.Location = new Point(21, 369);
+            cbCourse.Location = new Point(21, 266);
             cbCourse.Name = "cbCourse";
             cbCourse.Size = new Size(388, 23);
             cbCourse.TabIndex = 14;
@@ -161,7 +153,6 @@
             Controls.Add(label2);
             Controls.Add(BtnAdd);
             Controls.Add(dataTblGridStudent);
-            Controls.Add(txtBoxCourse);
             Controls.Add(label5);
             Controls.Add(txtBoxAge);
             Controls.Add(label4);
@@ -184,7 +175,6 @@
         private Label label3;
         private TextBox txtBoxAge;
         private Label label4;
-        private TextBox txtBoxCourse;
         private Label label5;
         private DataGridView tblStudent;
         private Button BtnAdd;

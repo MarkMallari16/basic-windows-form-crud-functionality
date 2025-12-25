@@ -1,12 +1,9 @@
 ﻿using FirstWinForm.Models;
 using FirstWinForm.Repositories;
-using System.Data;
 namespace FirstWinForm
 {
     public partial class Form2 : Form
     {
-        private DataTable table;
-
         public Form2()
         {
             InitializeComponent();
@@ -37,7 +34,6 @@ namespace FirstWinForm
             txtBoxFirstName.Clear();
             txtBoxLastName.Clear();
             txtBoxAge.Clear();
-            txtBoxCourse.Clear();
         }
         private bool HasValidations()
         {
@@ -72,10 +68,10 @@ namespace FirstWinForm
                 return false;
             }
 
-            if (string.IsNullOrWhiteSpace(txtBoxCourse.Text))
+            if (cbCourse.SelectedIndex == 0)
             {
                 MessageBox.Show("Course is required.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtBoxCourse.Focus();
+                cbCourse.Focus();
                 return false;
             }
 
@@ -94,7 +90,7 @@ namespace FirstWinForm
                 FirstName = txtBoxFirstName.Text,
                 LastName = txtBoxLastName.Text,
                 Age = txtBoxAge.Text,
-                Course = txtBoxCourse.Text
+                Course = cbCourse.Text
             };
 
             StudentRepository repo = new StudentRepository();
