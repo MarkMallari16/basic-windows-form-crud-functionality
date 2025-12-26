@@ -21,7 +21,6 @@ namespace FirstWinForm
             txtBoxCourse.Text = student.Course;
 
         }
-
         private void DeleteBtn_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Are you sure you want to delete this student?", "Confirm Delete", MessageBoxButtons.YesNo,

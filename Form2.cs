@@ -7,8 +7,8 @@ namespace FirstWinForm
         public Form2()
         {
             InitializeComponent();
-            LoadStudents();
             InitializeCourseComboBox();
+            LoadStudents();
         }
 
         private void InitializeCourseComboBox()
