@@ -13,14 +13,34 @@ namespace FirstWinForm
 
             _student = student;
 
+            InitializeCourseComboBox();
+
             //Filled only the inputs
             txtBoxId.Text = student.StudentId.ToString();
             txtBoxFirstName.Text = student.FirstName;
             txtBoxLastName.Text = student.LastName;
             txtBoxAge.Text = student.Age;
-            txtBoxCourse.Text = student.Course;
+
+            int courseIndex = cbCourse.Items.IndexOf(student.Course);
+
+            if (courseIndex >= 0)
+            {
+                cbCourse.SelectedIndex = courseIndex;
+            }
 
         }
+        private void InitializeCourseComboBox()
+        {
+            cbCourse.Items.Add("Select Course");
+            cbCourse.Items.Add("BSIT");
+            cbCourse.Items.Add("BSCS");
+            cbCourse.Items.Add("BSCE");
+            cbCourse.Items.Add("BSIS");
+
+            cbCourse.SelectedIndex = 0;
+            cbCourse.DropDownStyle = ComboBoxStyle.DropDownList;
+        }
+
         private void DeleteBtn_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Are you sure you want to delete this student?", "Confirm Delete", MessageBoxButtons.YesNo,
@@ -48,7 +68,7 @@ namespace FirstWinForm
             _student.FirstName = txtBoxFirstName.Text;
             _student.LastName = txtBoxLastName.Text;
             _student.Age = txtBoxAge.Text;
-            _student.Course = txtBoxCourse.Text;
+            _student.Course = cbCourse.Text;
 
             StudentRepository repo = new StudentRepository();
 

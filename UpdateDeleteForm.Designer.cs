@@ -37,10 +37,10 @@
             label4 = new Label();
             txtBoxAge = new TextBox();
             label5 = new Label();
-            txtBoxCourse = new TextBox();
             label6 = new Label();
             DeleteBtn = new Button();
             UpdateBtn = new Button();
+            cbCourse = new ComboBox();
             SuspendLayout();
             // 
             // label1
@@ -118,13 +118,6 @@
             label5.TabIndex = 7;
             label5.Text = "Age";
             // 
-            // txtBoxCourse
-            // 
-            txtBoxCourse.Location = new Point(12, 260);
-            txtBoxCourse.Name = "txtBoxCourse";
-            txtBoxCourse.Size = new Size(435, 23);
-            txtBoxCourse.TabIndex = 10;
-            // 
             // label6
             // 
             label6.AutoSize = true;
@@ -160,14 +153,22 @@
             UpdateBtn.UseVisualStyleBackColor = false;
             UpdateBtn.Click += UpdateBtn_Click;
             // 
+            // cbCourse
+            // 
+            cbCourse.FormattingEnabled = true;
+            cbCourse.Location = new Point(12, 269);
+            cbCourse.Name = "cbCourse";
+            cbCourse.Size = new Size(435, 23);
+            cbCourse.TabIndex = 13;
+            // 
             // UpdateDeleteForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(459, 379);
+            Controls.Add(cbCourse);
             Controls.Add(UpdateBtn);
             Controls.Add(DeleteBtn);
-            Controls.Add(txtBoxCourse);
             Controls.Add(label6);
             Controls.Add(txtBoxAge);
             Controls.Add(label5);
@@ -205,5 +206,6 @@
         private TextBox txtBoxLastName;
         private TextBox txtBoxAge;
         private TextBox txtBoxCourse;
+        private ComboBox cbCourse;
     }
 }
