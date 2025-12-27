@@ -32,12 +32,14 @@ namespace FirstWinForm
             dataTblGridStudent.Columns["FirstName"].HeaderText = "First Name";
             dataTblGridStudent.Columns["LastName"].HeaderText = "Last Name";
         }
+
         private void ResetAllInputs()
         {
             txtBoxFirstName.Clear();
             txtBoxLastName.Clear();
             txtBoxAge.Clear();
         }
+
         private bool HasValidations()
         {
             if (string.IsNullOrWhiteSpace(txtBoxFirstName.Text))
@@ -79,6 +81,7 @@ namespace FirstWinForm
 
             return true;
         }
+
         private void BtnAdd_Click(object sender, EventArgs e)
         {
 
