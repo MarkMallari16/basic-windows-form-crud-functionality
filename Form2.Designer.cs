@@ -88,7 +88,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(21, 248);
+            label5.Location = new Point(21, 244);
             label5.Name = "label5";
             label5.Size = new Size(88, 15);
             label5.TabIndex = 9;
@@ -99,7 +99,7 @@
             BtnAdd.BackColor = SystemColors.ActiveCaptionText;
             BtnAdd.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             BtnAdd.ForeColor = SystemColors.Control;
-            BtnAdd.Location = new Point(21, 305);
+            BtnAdd.Location = new Point(21, 301);
             BtnAdd.Name = "BtnAdd";
             BtnAdd.Size = new Size(388, 37);
             BtnAdd.TabIndex = 11;
@@ -135,7 +135,7 @@
             // cbCourse
             // 
             cbCourse.FormattingEnabled = true;
-            cbCourse.Location = new Point(21, 266);
+            cbCourse.Location = new Point(22, 263);
             cbCourse.Name = "cbCourse";
             cbCourse.Size = new Size(388, 23);
             cbCourse.TabIndex = 14;

@@ -6,7 +6,7 @@
         private string firstName, lastName;
         private string age;
         private string course;
-
+        faet
         public int StudentId
         {
             get => studentId;
@@ -17,13 +17,11 @@
             get => firstName;
             set => firstName = value;
         }
-
         public string LastName
         {
             get => lastName;
             set => lastName = value;
         }
-
         public string Age
         {
             get => age;
