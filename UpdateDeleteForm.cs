@@ -10,9 +10,7 @@ namespace FirstWinForm
         public UpdateDeleteForm(Student student)
         {
             InitializeComponent();
-
             _student = student;
-
             InitializeCourseComboBox();
 
             //Filled only the inputs
