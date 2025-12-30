@@ -10,7 +10,6 @@ namespace FirstWinForm
             InitializeCourseComboBox();
             LoadStudents();
         }
-
         private void InitializeCourseComboBox()
         {
             cbCourse.Items.Add("Select Course");

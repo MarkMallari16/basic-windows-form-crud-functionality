@@ -80,7 +80,6 @@ namespace FirstWinForm
                 MessageBox.Show("Update failed. Student not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void txtBoxAge_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) && !char.IsDigit(e.KeyChar))
