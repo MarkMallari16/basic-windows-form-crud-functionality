@@ -1,11 +1,11 @@
 namespace FirstWinForm
 {
-    public partial class Form1 : Form
+    public partial class LoginForm : Form
     {
         private string username = "Mark";
         private string password = "Mark123";
 
-        public Form1()
+        public LoginForm()
         {
             InitializeComponent();
         }
@@ -19,7 +19,7 @@ namespace FirstWinForm
             {
                 MessageBox.Show("Login Successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                Form2 form2 = new Form2();
+                DashboardForm form2 = new DashboardForm();
                 form2.Show();
 
                 this.Hide();

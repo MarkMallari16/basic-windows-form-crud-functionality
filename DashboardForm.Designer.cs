@@ -1,6 +1,6 @@
 ﻿namespace FirstWinForm
 {
-    partial class Form2
+    partial class DashboardForm
     {
         /// <summary>
         /// Required designer variable.

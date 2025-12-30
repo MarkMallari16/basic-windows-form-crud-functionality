@@ -2,9 +2,9 @@
 using FirstWinForm.Repositories;
 namespace FirstWinForm
 {
-    public partial class Form2 : Form
+    public partial class DashboardForm : Form
     {
-        public Form2()
+        public DashboardForm()
         {
             InitializeComponent();
             InitializeCourseComboBox();
