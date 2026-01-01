@@ -30,8 +30,6 @@ namespace FirstWinForm.Repositories
                             Age = reader.GetInt32(3).ToString(),
                             Course = reader.GetString(4),
                         });
-
-
                     }
                 }
 
@@ -55,7 +53,6 @@ namespace FirstWinForm.Repositories
                 conn.Open();
 
                 return cmd.ExecuteNonQuery() > 0;
-
             }
         }
 

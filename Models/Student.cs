@@ -6,7 +6,6 @@
         private string firstName, lastName;
         private string age;
         private string course;
-        faet
         public int StudentId
         {
             get => studentId;
