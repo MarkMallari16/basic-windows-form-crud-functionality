@@ -22,6 +22,7 @@ namespace FirstWinForm
 
             cbCourse.DropDownStyle = ComboBoxStyle.DropDownList;
         }
+
         private void LoadStudents()
         {
             StudentRepository repo = new StudentRepository();
@@ -31,14 +32,12 @@ namespace FirstWinForm
             dataTblGridStudent.Columns["FirstName"].HeaderText = "First Name";
             dataTblGridStudent.Columns["LastName"].HeaderText = "Last Name";
         }
-
         private void ResetAllInputs()
         {
             txtBoxFirstName.Clear();
             txtBoxLastName.Clear();
             txtBoxAge.Clear();
         }
-
         private bool HasValidations()
         {
             if (string.IsNullOrWhiteSpace(txtBoxFirstName.Text))
@@ -80,7 +79,6 @@ namespace FirstWinForm
 
             return true;
         }
-
         private void BtnAdd_Click(object sender, EventArgs e)
         {
 
@@ -106,7 +104,6 @@ namespace FirstWinForm
                 ResetAllInputs();
             }
         }
-
         private void dataTblGridStudent_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (e.RowIndex >= 0)
