@@ -19,7 +19,6 @@ namespace FirstWinForm
             cbCourse.Items.Add("BSIS");
 
             cbCourse.SelectedIndex = 0;
-
             cbCourse.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
