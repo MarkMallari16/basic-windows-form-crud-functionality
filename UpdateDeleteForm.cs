@@ -25,7 +25,6 @@ namespace FirstWinForm
             {
                 cbCourse.SelectedIndex = courseIndex;
             }
-
         }
         private void InitializeCourseComboBox()
         {
