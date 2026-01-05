@@ -9,7 +9,6 @@ namespace FirstWinForm
         {
             InitializeComponent();
         }
-
         private void btnLogin_Click(object sender, EventArgs e)
         {
             string inputUsername = txtBoxUsername.Text;
