@@ -31,11 +31,11 @@
         {
             tabControl = new TabControl();
             tabPage1 = new TabPage();
+            label1 = new Label();
             tabPage2 = new TabPage();
+            label2 = new Label();
             btnFirst = new Button();
             btnSecond = new Button();
-            label1 = new Label();
-            label2 = new Label();
             tabControl.SuspendLayout();
             tabPage1.SuspendLayout();
             tabPage2.SuspendLayout();
@@ -48,9 +48,8 @@
             tabControl.Location = new Point(254, 26);
             tabControl.Name = "tabControl";
             tabControl.SelectedIndex = 0;
-            tabControl.Size = new Size(733, 622);
+            tabControl.Size = new Size(864, 761);
             tabControl.TabIndex = 0;
-            tabControl.SelectedIndexChanged += tabControl1_SelectedIndexChanged;
             // 
             // tabPage1
             // 
@@ -58,10 +57,20 @@
             tabPage1.Location = new Point(4, 24);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(725, 594);
+            tabPage1.Size = new Size(856, 733);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "tabPage1";
             tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 48F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(228, 339);
+            label1.Name = "label1";
+            label1.Size = new Size(406, 86);
+            label1.TabIndex = 0;
+            label1.Text = "Sample First";
             // 
             // tabPage2
             // 
@@ -69,10 +78,20 @@
             tabPage2.Location = new Point(4, 24);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(725, 594);
+            tabPage2.Size = new Size(856, 733);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "tabPage2";
             tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 48F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(201, 323);
+            label2.Name = "label2";
+            label2.Size = new Size(497, 86);
+            label2.TabIndex = 1;
+            label2.Text = "Sample Second";
             // 
             // btnFirst
             // 
@@ -91,26 +110,6 @@
             btnSecond.TabIndex = 2;
             btnSecond.Text = "Second";
             btnSecond.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 48F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(168, 251);
-            label1.Name = "label1";
-            label1.Size = new Size(406, 86);
-            label1.TabIndex = 0;
-            label1.Text = "Sample First";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 48F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(159, 254);
-            label2.Name = "label2";
-            label2.Size = new Size(497, 86);
-            label2.TabIndex = 1;
-            label2.Text = "Sample Second";
             // 
             // TestForm
             // 

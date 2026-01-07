@@ -11,18 +11,15 @@
         {
             btnFirst.Click += btnFirst_Click;
             btnSecond.Click += btnSecond_Click;
+
+            HideTabs(tabControl);
         }
 
-        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        private void HideTabs(TabControl tabControl)
         {
-            if (tabControl.SelectedTab == tabPage1)
-            {
-                MessageBox.Show("First tab button clicked");
-            }
-            else if (tabControl.SelectedTab == tabPage2)
-            {
-                MessageBox.Show("Second tab button clicked");
-            }
+            tabControl.Appearance = TabAppearance.FlatButtons;
+            tabControl.ItemSize = new Size(0, 1);
+            tabControl.SizeMode = TabSizeMode.Fixed;
         }
 
         private void btnFirst_Click(object sender, EventArgs e)
