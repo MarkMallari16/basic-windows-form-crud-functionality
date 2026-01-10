@@ -120,6 +120,7 @@
             Controls.Add(btnFirst);
             Controls.Add(tabControl);
             Name = "TestForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "TestForm";
             Load += TestForm_Load;
             tabControl.ResumeLayout(false);
