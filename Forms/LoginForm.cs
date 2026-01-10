@@ -5,8 +5,8 @@ namespace FirstWinForm
 {
     public partial class LoginForm : Form
     {
-        private string username = "Mark";
-        private string password = "Mark123";
+        private string username = "admin";
+        private string password = "admin123";
 
         public LoginForm()
         {
