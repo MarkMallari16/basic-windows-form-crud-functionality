@@ -1,6 +1,3 @@
-
-using FirstWinForm.Forms;
-
 namespace FirstWinForm
 {
     public partial class LoginForm : Form
@@ -21,7 +18,7 @@ namespace FirstWinForm
             {
                 MessageBox.Show("Login Successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                TestForm form2 = new TestForm();
+                DashboardForm form2 = new DashboardForm();
                 form2.Show();
 
                 this.Hide();
